@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>AxE ArticyJson To Wsource Tool</title>
+	<!-- https://electronjs.org/docs/tutorial
+						/security#csp-meta-tag -->
+	<meta http-equiv="Content-Security-Policy"
+		content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+	<!-- We are using node
+	<script>
+		document.write(process.versions.node)
+	</script>, Chrome
+	<script>
+		document.write(process.versions.chrome)
+	</script>, and Electron
+	<script>
+		document.write(process.versions.electron)
+	</script>. -->
+	<h3>拖拽AxE Articy Json到窗口内</h3>
+	<button id="button">生成wsource</button>
+
+	<!-- Adding Individual Renderer Process JS File -->
+	<script src="index.js"></script>
+	<script>
+		var button = document.getElementById('button');
+		button.onclick = function (){
+			
+		}
+	</script>
+</body>
+</html>

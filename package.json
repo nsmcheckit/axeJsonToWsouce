@@ -1,15 +1,68 @@
 {
-  "dependencies": {
-    "cnpm": "^8.3.0"
-  },
-  "name": "c",
+  "name": "electron-drag",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "description": "File Drag and Drop in Electron",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
-  "author": "",
+  "keywords": [
+    "electron"
+  ],
+  "author": "Radhesh Khanna",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "debug": "^4.3.4",
+    "electron-squirrel-startup": "^1.0.0",
+    "filenamify": "^5.1.1",
+    "fs": "^0.0.1-security",
+    "semver": "^7.3.7",
+    "yallist": "^4.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "electron": "^8.5.5"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_drag"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsmcheckit/axeJsonToWsouce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nsmcheckit/axeJsonToWsouce/issues"
+  },
+  "homepage": "https://github.com/nsmcheckit/axeJsonToWsouce#readme"
+  
 }
