@@ -3,8 +3,8 @@ var fs = require("fs");
 const wsourcePrefix = '<?xml version="1.0" encoding="UTF-8">\n'
 + '<ExternalSourceList SchemaVersion="1" Root="ExternalSource">\n'
 const wsourceSuffix = '</ExternalSourcesList>\n'
-var wsource = wsourcePrefix; 
-var wsourceJson = {};
+let wsource = wsourcePrefix; 
+let wsourceJson = {};
 // 函数实现，参数单位 毫秒 ；
 function wait(ms) {
     return new Promise(resolve => setTimeout(() => resolve(), ms));
@@ -13,11 +13,9 @@ function wait(ms) {
 
 async function jsonToWsource(wsourceJson){
 	for (let i = 0;i < wsourceJson.length;i++){
-		wsourceJson[i] = 
-		console.log(wsourceJson[i]);
-		wsource = wsource + '<Source path="' + wsourceJson[i] + '" ' + 'Conversion="' + wsourceJson[i] + '/>' +'\n';
-		console.log(wsource);
+		wsource = `${wsource}<Source path="${wsourceJson[i].TechnicalName}" Conversion="${wsourceJson[i].TechnicalName}"/>\n`;
 	}
+	//wsource = wsource + wsourceSuffix;
 }
 async function outPutWsource(wsource){
 	fs.writeFile('C:/Users/mengqingjie1/Desktop/test.wsource', wsource, err => {
@@ -41,6 +39,7 @@ document.addEventListener('drop', async (event) => {
 			  console.error(err)
 			  return
 			}
+			//wsourceJson = JSON.stringify(data);
 			wsourceJson = JSON.parse(data);
 			// for (const i of data){
 			// 	console.log(i);
@@ -48,8 +47,6 @@ document.addEventListener('drop', async (event) => {
 			console.log(wsourceJson)
 			jsonToWsource(wsourceJson);
 		  })
-		  // 调用方法；
-		  await wait(5000);
 		  outPutWsource(wsource);
 		
 	}
