@@ -19,6 +19,8 @@
     "filenamify": "^5.1.1",
     "fs": "^0.0.1-security",
     "semver": "^7.3.7",
+    "watch": "^1.0.2",
+    "xml2js": "^0.4.23",
     "yallist": "^4.0.0"
   },
   "devDependencies": {
@@ -64,5 +66,4 @@
     "url": "https://github.com/nsmcheckit/axeJsonToWsouce/issues"
   },
   "homepage": "https://github.com/nsmcheckit/axeJsonToWsouce#readme"
-  
 }
