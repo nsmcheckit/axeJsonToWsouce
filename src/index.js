@@ -142,9 +142,9 @@ function jsonToWsource(jsonListAll,wsource){
 				//			2、如果不一样，写入wsourceString，新建一个sourcechange[]，准备之后在wsource中删除这些（这时还没有wsourceString = XML2String(wsource)）
 				//		二、如果不一样，写入wsourceString
 				//这时wsourceString有： 新增的、修改的
-				if(!wsourceStringTemp.includes(`\t<Source Path="${jsonListAll[i][j].TechnicalName}" Conversion="${jsonListAll[i][j].TechnicalName}"/>\n`)){
-					wsourceString += `\t<Source Path="${jsonListAll[i][j].TechnicalName}" Conversion="${jsonListAll[i][j].TechnicalName}"/>\n`;
-					wsourceStringTemp.push(`\t<Source Path="${jsonListAll[i][j].TechnicalName}" Conversion="${jsonListAll[i][j].TechnicalName}"/>\n`);
+				if(!wsourceStringTemp.includes(`\t<Source Path="${jsonListAll[i][j]["Audio File Name(文件命名)"]}" Conversion="${jsonListAll[i][j].Conversion}"/>\n`)){
+					wsourceString += `\t<Source Path="${jsonListAll[i][j]["Audio File Name(文件命名)"]}" Conversion="${jsonListAll[i][j].Conversion}"/>\n`;
+					wsourceStringTemp.push(`\t<Source Path="${jsonListAll[i][j]["Audio File Name(文件命名)"]}" Conversion="${jsonListAll[i][j].Conversion}"/>\n`);
 				}
 			}
 			// var newNode=document.createElement("Source");//创建元素节点
