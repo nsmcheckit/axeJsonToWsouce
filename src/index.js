@@ -1,8 +1,8 @@
 var path = require("path");
 var fs = require("fs");
-const articyJsonPath = "../articyTempleteJson";
+const articyJsonPath = "../../articyTempleteJson";
 const externalSourcePath = "../../../Game_WwiseProject/ExternalSources/";
-const externalSourcePath2 = "../../Game_WwiseProject/ExternalSources/";
+const externalSourcePath2 = "../../../Game_WwiseProject/ExternalSources/";
 const wsourcePrefix = '<?xml version="1.0" encoding="UTF-8">\n'
 + '<ExternalSourceList SchemaVersion="1" Root="ExternalSource">\n';
 const wsourceSuffix = '</ExternalSourcesList>\n';
@@ -18,6 +18,7 @@ var watch = require('watch');
 initWatchFile();
 watchFile();
 
+//检测目前文件夹内有什么文件，并初始化wsource文件
 function initWatchFile(){
 	jsonList = listFile(articyJsonPath);
 	console.log("目前articyTempleteJson文件夹下有如下文件： ");
