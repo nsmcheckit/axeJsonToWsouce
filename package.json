@@ -20,6 +20,7 @@
     "child_process": "^1.0.2",
     "debug": "^4.3.4",
     "electron-builder": "^18.2.0",
+    "electron-forge": "^5.2.4",
     "electron-squirrel-startup": "^1.0.0",
     "filenamify": "^5.1.1",
     "fs": "^0.0.1-security",
