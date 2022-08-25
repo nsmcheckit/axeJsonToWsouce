@@ -1,8 +1,10 @@
 var path = require("path");
 var fs = require("fs");
-const articyJsonPath = "../../articyTempleteJson";
+//const articyJsonPath = "../../xlsxtojson/json";//build
+const articyJsonPath = "../xlsxtojson/json";//npm run start
 const externalSourcePath = "../../../Game_WwiseProject/ExternalSources/";
-const externalSourcePath2 = "../../../Game_WwiseProject/ExternalSources/";
+//const externalSourcePath2 = "../../../Game_WwiseProject/ExternalSources/";//build
+const externalSourcePath2 = "../../Game_WwiseProject/ExternalSources/";//npm run start
 const wsourcePrefix = '<?xml version="1.0" encoding="UTF-8">\n'
 + '<ExternalSourceList SchemaVersion="1" Root="ExternalSource">\n';
 const wsourceSuffix = '</ExternalSourcesList>\n';
@@ -21,7 +23,7 @@ watchFile();
 //检测目前文件夹内有什么文件，并初始化wsource文件
 function initWatchFile(){
 	jsonList = listFile(articyJsonPath);
-	console.log("目前articyTempleteJson文件夹下有如下文件： ");
+	console.log("目前json文件夹下有如下文件： ");
 	return new Promise((resolve,reject) =>{
 		for(let i = 0; i<jsonList.length; i++){
 			if(jsonList[i] !== undefined){
@@ -41,7 +43,7 @@ function watchFile(){
 			if (!jsonList.includes(filename)){
 				jsonList.push(filename);
 			}
-			console.log("目前articyTempleteJson文件夹下有如下文件");
+			console.log("目前json文件夹下有如下文件");
 			for(let i = 0; i<jsonList.length; i++){
 				if(jsonList[i] !== undefined){
 					console.log("\t"+jsonList[i].split("\\").slice(-1) + "\n");
@@ -55,7 +57,7 @@ function watchFile(){
 			if (jsonList.includes(filename)){
 				delete jsonList[jsonList.indexOf(filename)];
 			}
-			console.log("目前articyTempleteJson文件夹下有如下文件");
+			console.log("目前json文件夹下有如下文件");
 			for(let i = 0; i<jsonList.length; i++){
 				if(jsonList[i] !== undefined){
 					console.log("\t"+jsonList[i].split("\\").slice(-1) + "\n");
@@ -69,7 +71,7 @@ function watchFile(){
 			if (!jsonList.includes(filename)){
 				jsonList.push(filename);
 			}
-			console.log("目前articyTempleteJson文件夹下有如下文件");
+			console.log("目前json文件夹下有如下文件");
 			for(let i = 0; i<jsonList.length; i++){
 				if(jsonList[i] !== undefined){
 					console.log("\t"+jsonList[i].split("\\").slice(-1) + "\n");

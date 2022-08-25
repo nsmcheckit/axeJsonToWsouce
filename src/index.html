@@ -2,11 +2,37 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>AxE ArticyJson To Wsource Tool</title>
+	<title>templeteExcel To Wsource Tool</title>
 	<!-- https://electronjs.org/docs/tutorial
 						/security#csp-meta-tag -->
+	<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="external nofollow" rel="stylesheet"/>
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" crossorigin="anonymous">
 	<meta http-equiv="Content-Security-Policy"
 		content="script-src 'self' 'unsafe-inline';" />
+		<style>
+			body {
+				padding-bottom: 50px;
+			}
+	 
+			.footer {
+				position: fixed;
+				left: 0px;
+				bottom: 0px;
+				width: 100%;
+				height: 50px;
+				background-color: #eee;
+				z-index: 9999;
+			}
+
+			a:link {text-decoration: none; color:rgb(113, 113, 121);}/*未访问的链接显示为蓝色，text-decoration:none将下划线隐藏*/
+    		a:visited {color:black;} /*用户已访问过的链接显示黑色*/
+    		a:hover {color:rgb(0, 0, 0);}   /*鼠标放置在链接上时显示为粉色*/
+    		a:active {color:yellow;}  /* 链接被点击那一刻显示黄色 */
+		</style>
+	<script>
+		window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.min.js');
+		require('../node_modules/bootstrap/dist/js/bootstrap.min.js');
+	</script>
 </head>
 <body>
 	<!-- We are using node
@@ -19,16 +45,23 @@
 	<script>
 		document.write(process.versions.electron)
 	</script>. -->
-	<h3></h3>
-	<!--<button id="button">生成wsource</button>-->
-
+	<div class="container-fluid row">
+		<div class="alert alert-primary text-center" role="alert">
+			<h1>ArticyJson To Wsource <span class="badge bg-secondary">v1.0</span></h1>
+		</div>
+		<button id="button" class="text-center btn btn-primary col-xs-4">Start</button>
+		<a class="footer" href="https://ztgame.feishu.cn/wiki/wikcnbtm6N6AqoAirOHHEUB67Qd?from=from_copylink" target="_blank" size="2">Readme</a>
 	<!-- Adding Individual Renderer Process JS File -->
-	<script src="index.js"></script>
-	<!--<script>
-		var button = document.getElementById('button');
-		button.onclick = function (){
-			
-		}
-	</script>-->
+		<script src="index.js"></script>
+		<script> 
+			var button = document.getElementById('button');
+			button.onclick = function (){
+				const {shell} = require('electron');
+				// Open a local file in the default app
+				shell.openPath('..\\xlsxtojson\\start.bat');
+			}
+		</script>
+	</div>
+	
 </body>
 </html>
