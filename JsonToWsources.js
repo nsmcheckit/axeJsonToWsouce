@@ -19,12 +19,7 @@ var watch = require('watch');
 
 initWatchFile();
 watchFile();
-// watchFileAndjsonMatchWav()
 
-// function watchFileAndjsonMatchWav(){
-// 	watchFile();
-// 	setTimeout(() => {jsonMatchWav();}, 1000);
-// }
 
 function jsonMatchWav(){
 	var wavList = [];//实际的wav文件数量
@@ -50,10 +45,10 @@ function jsonMatchWav(){
 		}
 	}
 	if(wavWrongNameList.length === 0 && jsonWavList.length === wavList.length){
-		alert("所有wav文件与json文件匹配");
+		console.error("所有wav文件与json文件匹配");
 	}
 	else{
-		alert("wav文件数量：" + wavList.length + "\n" 
+		console.error("wav文件数量：" + wavList.length + "\n" 
 		+ "json中wav文件数量：" + jsonWavList.length + "\n\n"
 		+ "缺少wav文件名：\n" + wavWrongNameList.join("\n") + "\n");
 	}
@@ -224,31 +219,4 @@ function LoadXMLFile(xmlFile) {
 		return xmlDom;  
 } 
 
-document.addEventListener('drop', (event) => {
-	event.preventDefault();
-	event.stopPropagation();
-	for (const f of event.dataTransfer.files) {
-		// // Using the path attribute to get absolute file path
-		// console.log('File Path of dragged files: ', f.path)
-		// fs.readFile(f.path, 'utf8' , (err, data) => {
-		// 	if (err) {
-		// 	  console.error(err)
-		// 	return
-		// 	}
-		// 	wsourceJson = JSON.parse(data);//解析articy json
-		// 	jsonToWsource(wsourceJson,wsource);
-		//   })	
-	}
-});
-document.addEventListener('dragover', (e) => {
-	e.preventDefault();
-	e.stopPropagation();
-});
 
-document.addEventListener('dragenter', (event) => {
-	console.log('File is in the Drop Space');
-});
-
-document.addEventListener('dragleave', (event) => {
-	console.log('File has left the Drop Space');
-});
